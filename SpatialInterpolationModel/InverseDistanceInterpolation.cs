@@ -14,7 +14,7 @@ namespace SpatialInterpolationModel
         public int Power { get; set; }
         public int NumberOfPoints { get; set; }
         public DataSet dataSet { get; set; }
-        public double Z(double x, double y)//,int power,List<XYZ> points)
+        public double Z(double x, double y)
         {
             try
             {

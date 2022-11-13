@@ -23,5 +23,6 @@ MongoDBDataSetRepository repository = new MongoDBDataSetRepository(connString);
 //repository.WriteDataSets(mds);
 //var r=repository.crudRead();
 //var r=repository.FindDataSets(campaign,DataSetType.DataSet,dataSeries);
-var r = repository.FilterDataSets(campaign, DataSetType.DataSet, dataSeries);
+//var r = repository.FilterDataSets(campaign, DataSetType.DataSet, dataSeries);
+var r = repository.FindById("636fcadb8d515e2b1f2d36d8");
 Console.WriteLine("end");

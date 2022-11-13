@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,10 @@ namespace MongoDBManager
             var filter2 = Builders<MongoDBDataSet>.Filter.Eq(x => x.metaInfo.CampaignCode,campaignCode);
             var filter3 = Builders<MongoDBDataSet>.Filter.Eq(x => x.metaInfo.DataSeries, dataSeries);
             return collection.Find(filter1&filter2&filter3).ToList();
+        }
+        public MongoDBDataSet FindById(string id)
+        {
+            return database.GetCollection<MongoDBDataSet>("datasets").Find(x => x.id == ObjectId.Parse(id)).FirstOrDefault();
         }
         //public List<MongoDBDataSet> crudRead()
         //{
