@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataSetManager\DataSetManager.csproj" />
+    <ProjectReference Include="..\SpatialInterpolationModel\SpatialInterpolationModel.csproj" />
   </ItemGroup>
 
 </Project>

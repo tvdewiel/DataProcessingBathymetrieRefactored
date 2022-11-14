@@ -132,7 +132,7 @@ namespace DataSetManager
             try
             {
                 List<DataSet> sets = new List<DataSet>();
-                Random random = new Random();
+                Random random = new Random(100);
                 //test set
                 Dictionary<int, XYZ> testset = new Dictionary<int, XYZ>();
                 int n = 0;
