@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppModelRuns", "Cons
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{B6D044AD-94AB-4AA9-BE1D-6ED678498027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSetManagerTestScenarios", "DataSetManagerTestScenarios\DataSetManagerTestScenarios.csproj", "{05D8B5FC-A3E1-43DD-8F2D-EEEDF919527B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataSetManagerTestScenarios", "DataSetManagerTestScenarios\DataSetManagerTestScenarios.csproj", "{05D8B5FC-A3E1-43DD-8F2D-EEEDF919527B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBManager", "MongoDBManager\MongoDBManager.csproj", "{FE78DF3E-4889-400E-BE00-AC37BDE32C0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDBManager", "MongoDBManager\MongoDBManager.csproj", "{FE78DF3E-4889-400E-BE00-AC37BDE32C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBManagerTest", "MongoDBManagerTest\MongoDBManagerTest.csproj", "{FB6FCC7A-55A3-467B-808E-63B0D08034D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDBManagerTest", "MongoDBManagerTest\MongoDBManagerTest.csproj", "{FB6FCC7A-55A3-467B-808E-63B0D08034D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridDataSetTest", "GridDataSetTest\GridDataSetTest.csproj", "{2DF79294-CAC5-41A6-AD23-B85BB3A29545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{FB6FCC7A-55A3-467B-808E-63B0D08034D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB6FCC7A-55A3-467B-808E-63B0D08034D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB6FCC7A-55A3-467B-808E-63B0D08034D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF79294-CAC5-41A6-AD23-B85BB3A29545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF79294-CAC5-41A6-AD23-B85BB3A29545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF79294-CAC5-41A6-AD23-B85BB3A29545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF79294-CAC5-41A6-AD23-B85BB3A29545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{05D8B5FC-A3E1-43DD-8F2D-EEEDF919527B} = {B6D044AD-94AB-4AA9-BE1D-6ED678498027}
 		{FB6FCC7A-55A3-467B-808E-63B0D08034D1} = {B6D044AD-94AB-4AA9-BE1D-6ED678498027}
+		{2DF79294-CAC5-41A6-AD23-B85BB3A29545} = {B6D044AD-94AB-4AA9-BE1D-6ED678498027}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8F200F7-6E0E-4494-8EC3-ED2520C3498C}

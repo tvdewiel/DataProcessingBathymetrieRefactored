@@ -290,18 +290,19 @@ namespace DataSetManager
                 throw new DataSetManagerException("ReadDataSet", ex);
             }
         }
-        public static List<GridDataSet> MakeGridDataSetsWithTestSet(DataSet dataSet, List<(int, int, int)> size) //first is test set
+        public static (DataSet, List<GridDataSet>) MakeGridDataSetsWithTestSet(DataSet dataSet, int testsetSize, List<(int, double)> size)
         {
             try
             {
                 List<GridDataSet> sets = new List<GridDataSet>();
-                Random random = new Random();
+                DataSet testDataSet;
+                Random random = new Random(100);
                 //test set
                 Dictionary<int, XYZ> testset = new Dictionary<int, XYZ>();
                 int n = 0;
                 int index;
                 if (size[0].Item1 > dataSet.data.Count) throw new DataSetManagerException($"MakeGridDataSetsWithTestSet - size to high - 0,{size[0]}");
-                while (n < size[0].Item1)
+                while (n < testsetSize)
                 {
                     index = random.Next(dataSet.data.Count);
                     if (!testset.ContainsKey(index))
@@ -310,9 +311,9 @@ namespace DataSetManager
                         testset.Add(index, dataSet.data[index]);
                     }
                 }
-                sets.Add(new GridDataSet(dataSet.XYBoundary, size[0].Item2, size[0].Item3, new DataSet(testset.Values.ToList())));
+                testDataSet = new DataSet(testset.Values.ToList());
                 //data sets
-                for (int i = 1; i < size.Count; i++)
+                for (int i = 0; i < size.Count; i++)
                 {
                     Dictionary<int, XYZ> set = new Dictionary<int, XYZ>();
                     n = 0;
@@ -326,9 +327,9 @@ namespace DataSetManager
                             set.Add(index, dataSet.data[index]);
                         }
                     }
-                    sets.Add(new GridDataSet(dataSet.XYBoundary, size[i].Item2, size[i].Item3, new DataSet(set.Values.ToList())));
+                    sets.Add(new GridDataSet(dataSet.XYBoundary, size[i].Item2, set.Values.ToList()));                   
                 }
-                return sets;
+                return (testDataSet, sets);
             }
             catch (Exception ex) { throw new DataSetManagerException("MakeDataSetsWithTestSet", ex); }
         }

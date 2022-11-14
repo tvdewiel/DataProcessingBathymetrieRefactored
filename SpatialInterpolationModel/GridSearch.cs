@@ -52,6 +52,27 @@ namespace SpatialInterpolationModel
                 }
             }
         }
+        private void ProcessRing(int i,int j, int ring,SortedList<double,List<XYZ>> nn,double x, double y,int n)
+        {
+            for (int gx = i - ring; gx <= i + ring; gx++)
+            {
+                //onderste rij
+                int gy = j - ring;
+                if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
+                //bovenste rij
+                gy = j + ring;
+                if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
+            }
+            for (int gy = j - ring + 1; gy <= j + ring - 1; gy++)
+            {
+                //linker kolom
+                int gx = i - ring;
+                if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
+                //rechter kolom
+                gx = i + ring;
+                if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
+            }
+        }
         public List<XYZ> FindNearestNeighbours(double x, double y, int n)
         {
             try
@@ -64,25 +85,9 @@ namespace SpatialInterpolationModel
                 {
                     //ring
                     ring++;
-                    for (int gx = i - ring; gx <= i + ring; gx++)
-                    {
-                        //onderste rij
-                        int gy = j - ring;
-                        if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
-                        //bovenste rij
-                        gy = j + ring;
-                        if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
-                    }
-                    for (int gy = j - ring+1; gy <= j + ring-1; gy++)
-                    {
-                        //linker kolom
-                        int gx = i - ring;
-                        if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
-                        //rechter kolom
-                        gx = i + ring;
-                        if (IsValidCell(gx, gy)) ProcessCell(nn, gx, gy, x, y, n);
-                    }
+                    ProcessRing(i,j,ring,nn,x,y,n);
                 }
+                ProcessRing(i,j,ring+1,nn, x,y,n); //correcties
                 return (List<XYZ>)ListFromSortedList(nn).Take(n).ToList();
             }
             catch (Exception ex)
